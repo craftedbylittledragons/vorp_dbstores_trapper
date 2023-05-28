@@ -61,13 +61,11 @@ function OpenSubMenu(storeId, category)
             _G[data.trigger](storeId, category)
         end
 
-        if (data.current.value == "Sell") then --translate here same as the config
-             
+        if (data.current.value == "Sell") then --translate here same as the config             
             OpenSellMenu(storeId, category)
         end
 
-        if (data.current.value == "Buy") then --translate here same as the config
-             
+        if (data.current.value == "Buy") then --translate here same as the config             
             OpenBuyMenu(storeId, category)
         end
 
@@ -108,15 +106,13 @@ function OpenSellMenu(storeId, category)
                         itemFound = true
                         menuElements[elementIndex] = {
                             itemHeight = "2vh",
-                            label = "<span style=font-size:15px;text-align:center;>" ..
-                            items.amount .. "</span>".."<img style='max-height:45px;max-width:45px;float: left;text-align: center; margin-top: -5px;' src='nui://vorp_inventory/html/img/items/" ..
-                                storeItem.itemName .. ".png'><span style=margin-left:40px;font-size:25px;text-align:center;>" ..
-                                storeItem.itemLabel .. "</span>",
+                            label = "<span style=font-size:15px;text-align:center;> " ..items.amount .. " </span>"..
+                            "<span style=margin-left:40px;font-size:25px;text-align:center;> " ..storeItem.itemLabel.. " </span>",
                             value = "sell" .. tostring(elementIndex),
                             desc = "" ..
                                 '<span style="font-family: crock; src:nui://menuapi/html/fonts/crock.ttf) format("truetype")</span>' ..
                                 _U("sellfor") .. '<span style="margin-left:90px;">' .. '<span style="font-size:25px;">' .. ctp ..
-                                '</span>' .. '<span style="font-size:30px;">' .. string.format("%.2f", storeItem.sellprice) ..
+                                '</span>' .. '<span style="font-size:30px;">' .. string.format("%.2f", storeItem.price) ..
                                 "</span><span style='color: Yellow;'>  " .. storeItem.currencyType .. "</span><br><br><br>" ..
                                 storeItem.desc,
                             info = storeItem
@@ -130,14 +126,13 @@ function OpenSellMenu(storeId, category)
             if not itemFound then
                 menuElements[elementIndex] = {
                     itemHeight = "2vh",
-                    label = "<span style=font-size:15px;text-align:left;>∞</span>".."<img style='max-height:45px;max-width:45px;float: left;text-align: center; margin-top: -5px;' src='nui://vorp_inventory/html/img/items/" ..
-                        storeItem.itemName .. ".png'><span style=margin-left:40px;font-size:25px;text-align:center;>" ..
-                        storeItem.itemLabel .. "</span>",
+                    label = "<span style=font-size:15px;text-align:center;> n/a </span>".. 
+                    "<span style=margin-left:40px;font-size:25px;text-align:center;> " ..storeItem.itemLabel .. " </span>",
                     value = "sell" .. tostring(elementIndex),
                     desc = "" ..
                         '<span style="font-family: crock; src:nui://menuapi/html/fonts/crock.ttf) format("truetype")</span>' ..
                         _U("sellfor") .. '<span style="margin-left:90px;">' .. '<span style="font-size:25px;">' .. ctp ..
-                        '</span>' .. '<span style="font-size:30px;">' .. string.format("%.2f", storeItem.sellprice) ..
+                        '</span>' .. '<span style="font-size:30px;">' .. string.format("%.2f", storeItem.price) ..
                         "</span><span style='color: Yellow;'>  " .. storeItem.currencyType .. "</span><br><br><br>" ..
                         storeItem.desc,
                     info = storeItem
@@ -162,7 +157,7 @@ function OpenSellMenu(storeId, category)
             local ItemName = data.current.info.itemName
             local ItemLabel = data.current.info.itemLabel
             local currencyType = data.current.info.currencyType
-            local sellPrice = data.current.info.sellprice
+            local sellPrice = data.current.info.price
 
             local myInput = {
                 type = "enableinput", -- dont touch
@@ -232,15 +227,13 @@ function OpenBuyMenu(storeId, category)
                         itemFound = true
                         menuElements[elementIndex] = {
                             itemHeight = "2vh",
-                            label = "<span style=font-size:15px;text-align:center;>" ..
-                            items.amount .. "</span>".." <img style='max-height: 40px;max-width: 40px;float: left;text-align: center;margin-top: -5px;' src='nui://vorp_inventory/html/img/items/" ..
-                                storeItem.itemName .. ".png'><span style=margin-left:40px;font-size:25px;text-align:center;>" ..
-                                storeItem.itemLabel .. "</span>",
+                            label = "<span style=font-size:15px;text-align:center;> " ..items.amount .. " </span>"..
+                            "<span style=margin-left:40px;font-size:25px;text-align:center;> " ..storeItem.itemLabel .. " </span>",
                             value = "sell" .. tostring(elementIndex),
                             desc = "" ..
                                 '<span style="font-family: crock; src:nui://menuapi/html/fonts/crock.ttf) format("truetype")</span>' ..
                                 _U("buyfor") .. '<span style="margin-left:90px;">' .. '<span style="font-size:25px;">' .. ctp ..
-                                '</span>' .. '<span style="font-size:30px;">' .. string.format("%.2f", storeItem.buyprice) ..
+                                '</span>' .. '<span style="font-size:30px;">' .. string.format("%.2f", storeItem.price) ..
                                 "</span><span style='color:Yellow;'>  " .. storeItem.currencyType .. "</span><br><br><br>" ..
                                 storeItem.desc,
                             info = storeItem            
@@ -253,14 +246,13 @@ function OpenBuyMenu(storeId, category)
             if not itemFound then
                 menuElements[elementIndex] = {
                     itemHeight = "2vh",
-                    label = "<span style=font-size:15px;text-align:left;>∞</span>".. "<img style='max-height: 40px;max-width: 40px;float: left;text-align: center;margin-top: -5px;' src='nui://vorp_inventory/html/img/items/" ..
-                        storeItem.itemName .. ".png'><span style=margin-left:40px;font-size:25px;text-align:center;>" ..
-                        storeItem.itemLabel .. "</span>",
+                    label = "<span style=font-size:15px;text-align:center;> n/a </span>".. 
+                        "<span style=margin-left:40px;font-size:25px;text-align:center;> " ..storeItem.itemLabel .. " </span>",
                     value = "sell" .. tostring(elementIndex),
                     desc = "" ..
                         '<span style="font-family: crock; src:nui://menuapi/html/fonts/crock.ttf) format("truetype")</span>' ..
                         _U("buyfor") .. '<span style="margin-left:90px;">' .. '<span style="font-size:25px;">' .. ctp ..
-                        '</span>' .. '<span style="font-size:30px;">' .. string.format("%.2f", storeItem.buyprice) ..
+                        '</span>' .. '<span style="font-size:30px;">' .. string.format("%.2f", storeItem.price) ..
                         "</span><span style='color:Yellow;'>  " .. storeItem.currencyType .. "</span><br><br><br>" ..
                         storeItem.desc,
                     info = storeItem
@@ -286,7 +278,7 @@ function OpenBuyMenu(storeId, category)
             local ItemName = data.current.info.itemName
             local ItemLabel = data.current.info.itemLabel
             local currencyType = data.current.info.currencyType
-            local buyPrice = data.current.info.buyprice
+            local buyPrice = data.current.info.price
 
             local myInput = {
                 type = "enableinput", -- dont touch

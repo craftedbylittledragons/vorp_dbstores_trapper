@@ -5,20 +5,36 @@ Config.ScriptName = GetCurrentResourceName()
     -- TODO
     -- CAMERA FACE NPC
     -- NPC ANIMATION
-
     --menu position
     -- "center" / "top-left" / "top-right"
 Config.Align = "top-left"
-
 Config.defaultlang = "en_lang"
 
        -- open stores
 Config.Key = 0x760A9C6F --[G]
 
+
+Config.PriceMultiplier = 0.11
+Config.StoreType = "trapper"
+
+--Webhook Section, description is in translation
+Config.UseWebhook = true -- Use webhook
+
+--Mandatory Webhook Parts
+Config.WebhookTitle = "Trapper Store Transactions"
+Config.Webhook = "https://discord.com/api/webhooks/1110061327612903445/Omw1z6dFZiBPu3RKO_EzIOQsvX4SP0oaaFbFK3pFRi0bxZ7c10CzEOXj7AFj5Soa0bSq"
+
+
+--Optional Webhook Parts, if not filled will default vorp_core config
+Config.WebhookColor = ""
+Config.WebhookName = ""
+Config.WebhookLogo = ""
+Config.WebhookLogo2 = ""
+Config.WebhookAvatar = ""
+
+
     --- STORES ---
-
 Config.Stores = {
-
 
 -----------------------------------------------------------------------------
 --------------------------------------Armadillo------------------------------
@@ -27,23 +43,124 @@ Config.Stores = {
 -----------------------------------------------------------------------------
 --------------------------------------Blackwater-----------------------------
 -----------------------------------------------------------------------------
-   
+  
+    BlackwaterTrapper = {
+        blipAllowed = true,
+        BlipName = "Trapper Store",
+        storeName = "Blackwater Trapper Store",
+        PromptName = "Trapper Store",
+        sprite = -1665418949,
+        x = -756.2, y = -1289.12, z = 43.65, h = 299.55,
+        distanceOpenStore = 2.5,
+        NpcAllowed = true,
+        NpcModel = "MP_CAMPDEF_gaptoothbreach_females_01",
+        AllowedJobs = {}, -- jobs allowed
+        JobGrade = 0,
+        category = { "Carcass","Organs","Tail","Skin","Feathers","Glands","Paw","Teeth","Claws","Misc"},
+        storeType = { "Buy","Sell" }, -- only one type
+        StoreHoursAllowed = false,
+        RandomPrices = false,
+        StoreOpen = 7, -- am
+        StoreClose = 21 -- pm
+    }, 
+    
 -----------------------------------------------------------------------------
 --------------------------------------Rhodes---------------------------------
 ----------------------------------------------------------------------------- 
-      
+     
+    RhodesTrapper = {
+        blipAllowed = true,
+        BlipName = "Trapper Store",
+        storeName = "Rhodes Trapper Store",
+        PromptName = "Trapper Store",
+        sprite = -1665418949,
+        x = -756.2, y = -1289.12, z = 43.65, h = 299.55,
+        distanceOpenStore = 2.5,
+        NpcAllowed = true,
+        NpcModel = "MBH_RHODESRANCHER_FEMALES_01",
+        AllowedJobs = {}, -- jobs allowed
+        JobGrade = 0,
+        category = { "Carcass","Organs","Tail","Skin","Feathers","Glands","Paw","Teeth","Claws","Misc"},
+        storeType = { "Buy","Sell" }, -- only one type
+        StoreHoursAllowed = false,
+        RandomPrices = false,
+        StoreOpen = 7, -- am
+        StoreClose = 21 -- pm
+
+    }, 
+    
 -----------------------------------------------------------------------------
 --------------------------------------St-Denis-------------------------------
 -----------------------------------------------------------------------------
- 
+  
+    StDenisTrapper = {
+        blipAllowed = true,
+        BlipName = "Trapper Store",
+        storeName = "St-Denis Trapper Store",
+        PromptName = "Trapper Store",
+        sprite = -1665418949,
+        x = 2819.71, y = -1331.34, z = 46.51, h= 24.49,
+        distanceOpenStore = 2.5,
+        NpcAllowed = true,
+        NpcModel = "U_M_M_TumButcher_01",
+        AllowedJobs = {}, -- jobs allowed
+        JobGrade = 0,
+        category = { "Carcass","Organs","Tail","Skin","Feathers","Glands","Paw","Teeth","Claws","Misc"},
+        storeType = { "Buy","Sell" }, -- only one type
+        StoreHoursAllowed = false,
+        RandomPrices = false,
+        StoreOpen = 7, -- am
+        StoreClose = 21 -- pm
+
+    }, 
 -----------------------------------------------------------------------------
 --------------------------------------Strawberry-----------------------------
 -----------------------------------------------------------------------------
- 
+  
+    StrawbTrapper = {
+        blipAllowed = true,
+        BlipName = "Trapper Store",
+        storeName = "St-Denis Trapper Store",
+        PromptName = "Trapper Store",
+        sprite = -1665418949,
+        x = -1744.97, y = -386.48, z = 156.75, h= 126.79,
+        distanceOpenStore = 2.5,
+        NpcAllowed = true,
+        NpcModel = "MP_CAMPDEF_gaptoothbreach_females_01",
+        AllowedJobs = {}, -- jobs allowed
+        JobGrade = 0,
+        category = { "Carcass","Organs","Tail","Skin","Feathers","Glands","Paw","Teeth","Claws","Misc"},
+        storeType = { "Buy","Sell" }, -- only one type
+        StoreHoursAllowed = false,
+        RandomPrices = false,
+        StoreOpen = 7, -- am
+        StoreClose = 21 -- pm
+
+    }, 
 -----------------------------------------------------------------------------
 --------------------------------------Tumbleweed-----------------------------
 -----------------------------------------------------------------------------
- 
+  
+    TumbleTrapper = {
+        blipAllowed = true,
+        BlipName = "Trapper Store",
+        storeName = "Tumbleweed Trapper Store",
+        PromptName = "Trapper Store",
+        sprite = -1665418949,
+        x = -5512.23, y = -2949.37, z = -1.86, h= 285.31,
+        distanceOpenStore = 2.5,
+        NpcAllowed = true,
+        NpcModel = "MP_CAMPDEF_gaptoothbreach_females_01",
+        AllowedJobs = {}, -- jobs allowed
+        JobGrade = 0,
+        category = { "Carcass","Organs","Tail","Skin","Feathers","Glands","Paw","Teeth","Claws","Misc"},
+        storeType = { "Buy","Sell" }, -- only one type
+        StoreHoursAllowed = false,
+        RandomPrices = false,
+        StoreOpen = 7, -- am
+        StoreClose = 21 -- pm
+
+    }, 
 -----------------------------------------------------------------------------
 --------------------------------------Valentine------------------------------
 -----------------------------------------------------------------------------
@@ -71,6 +188,27 @@ Config.Stores = {
 -----------------------------------------------------------------------------
 --------------------------------------Vanhorn--------------------------------
 -----------------------------------------------------------------------------
+  
+    VanTrapper = {
+        blipAllowed = true,
+        BlipName = "Trapper Store",
+        storeName = "Vanhorn Trapper Store",
+        PromptName = "Trapper Store",
+        sprite = -1665418949,
+        x = 2996.36, y = 576.29, z = 44.1, h= 180.73, 
+        distanceOpenStore = 2.5,
+        NpcAllowed = true,
+        NpcModel = "MP_CAMPDEF_gaptoothbreach_females_01",
+        AllowedJobs = {}, -- jobs allowed
+        JobGrade = 0,
+        category = { "Carcass","Organs","Tail","Skin","Feathers","Glands","Paw","Teeth","Claws","Misc"},
+        storeType = { "Buy","Sell" }, -- only one type
+        StoreHoursAllowed = false,
+        RandomPrices = false,
+        StoreOpen = 7, -- am
+        StoreClose = 21 -- pm
+
+    }, 
  
 
 }
@@ -87,14 +225,10 @@ Config.Stores = {
     -- desc = a description of the item
     -- category = where the item will be displayed at 
 
-Trapper_Sell_Items = {
-   
-        --Misc
-            { itemLabel = "Fish Eggs", itemName = "fish_eggs", currencyType = "cash", sellprice = 1, randomprice = math.random(30, 55), desc = "Sell Fish Eggs", category = "Misc" },   
-            { itemLabel = "Fish Head", itemName = "fish_head", currencyType = "cash", sellprice = 1, randomprice = math.random(30, 55), desc = "Sell Fish Head", category = "Misc" },
-            { itemLabel = "Snake Poison", itemName = "Snake_Poison", currencyType = "cash", sellprice = 1, randomprice = math.random(30, 55), desc = "Sell Snake Poison", category = "Misc" },
-            { itemLabel = "Wool", itemName = "wool", currencyType = "cash", sellprice = 1, randomprice = math.random(30, 55), desc = "Sell Wool", category = "Misc" }    
-}
+_Items_SELL = {
+    --Carcass
+    --{ itemLabel = "Possum Carcass", itemName = "possum_carcass", currencyType = "cash", price = 1, randomprice = math.random(30, 55), desc = "Sell Possum Carcass", category = "Carcass" },
+ }
 -----------------------------------------------------------------------------
 --------------------------------------SELL ITEMS ----------------------------
 -----------------------------------------------------------------------------
@@ -106,30 +240,30 @@ Config.SellItems = {
     -----------------------------------------------------------------------------
     --------------------------------------Blackwater------------------------------
     ----------------------------------------------------------------------------- 
-        BlackwaterTrapper = Trapper_Sell_Items , 
+        BlackwaterTrapper = _Items_SELL , 
     -----------------------------------------------------------------------------
     --------------------------------------Rhodes--------------------------------- 
-        RhodesTrapper = Trapper_Sell_Items , 
+        RhodesTrapper = _Items_SELL , 
     -----------------------------------------------------------------------------
     --------------------------------------St-Denis-------------------------------
     ----------------------------------------------------------------------------- 
-        StDenisTrapper = Trapper_Sell_Items , 
+        StDenisTrapper = _Items_SELL , 
     -----------------------------------------------------------------------------
     --------------------------------------Strawberry-----------------------------
     ----------------------------------------------------------------------------- 
-        StrawbTrapper = Trapper_Sell_Items , 
+        StrawbTrapper = _Items_SELL , 
     -----------------------------------------------------------------------------
     --------------------------------------Tumbleweed-----------------------------
     -----------------------------------------------------------------------------
-         TumbleTrapper = Trapper_Sell_Items , 
+         TumbleTrapper = _Items_SELL , 
     -----------------------------------------------------------------------------
     --------------------------------------Valentine------------------------------
     ----------------------------------------------------------------------------- 
-        ValTrapper = Trapper_Sell_Items , 
+        ValTrapper = _Items_SELL , 
     -----------------------------------------------------------------------------
     --------------------------------------Vanhorn--------------------------------
     ----------------------------------------------------------------------------- 
-        VanTrapper = Trapper_Sell_Items , 
+        VanTrapper = _Items_SELL , 
 }
 
 -----------------------------------------------------------------------------
@@ -143,13 +277,9 @@ Config.SellItems = {
     -- desc = a description of the item
     -- category = where the item will be displayed at 
 
-Trapper_Buy_Items = {
- 
-    --Misc
-        { itemLabel = "Fish Eggs", itemName = "fish_eggs", currencyType = "cash", buyprice = 5, randomprice = math.random(30, 55), desc = "Buy Fish Eggs", category = "Misc" },   
-        { itemLabel = "Fish Head", itemName = "fish_head", currencyType = "cash", buyprice = 2, randomprice = math.random(30, 55), desc = "Buy Fish Head", category = "Misc" },
-        { itemLabel = "Snake Poison", itemName = "Snake_Poison", currencyType = "cash", buyprice = 25, randomprice = math.random(30, 55), desc = "Buy Snake Poison", category = "Misc" },
-        { itemLabel = "Wool", itemName = "wool", currencyType = "cash", buyprice = 10, randomprice = math.random(30, 55), desc = "Buy Wool", category = "Misc" }   
+_Items_BUY = {
+    --Carcass
+    --{ itemLabel = "Possum Carcass", itemName = "possum_carcass", currencyType = "cash", price = 1, randomprice = math.random(30, 55), desc = "Buy Possum Carcass", category = "Carcass" },
 }
 
 -----------------------------------------------------------------------------
@@ -164,31 +294,31 @@ Config.BuyItems = {
     -----------------------------------------------------------------------------
     --------------------------------------Blackwater------------------------------
     -----------------------------------------------------------------------------
-         BlackwaterTrapper = Trapper_Buy_Items, 
+         BlackwaterTrapper = _Items_BUY, 
     -----------------------------------------------------------------------------
     --------------------------------------Rhodes---------------------------------
     ----------------------------------------------------------------------------- 
-        RhodesTrapper = Trapper_Buy_Items,  
+        RhodesTrapper = _Items_BUY,  
     -----------------------------------------------------------------------------
     --------------------------------------St-Denis-------------------------------
     ----------------------------------------------------------------------------- 
-        StDenisTrapper = Trapper_Buy_Items, 
+        StDenisTrapper = _Items_BUY, 
     -----------------------------------------------------------------------------
     --------------------------------------Strawberry-----------------------------
     ----------------------------------------------------------------------------- 
-        StrawbTrapper = Trapper_Buy_Items, 
+        StrawbTrapper = _Items_BUY, 
     -----------------------------------------------------------------------------
     --------------------------------------Tumbleweed-----------------------------
     ----------------------------------------------------------------------------- 
-        TumbleTrapper = Trapper_Buy_Items, 
+        TumbleTrapper = _Items_BUY, 
     -----------------------------------------------------------------------------
     --------------------------------------Valentine------------------------------
     ----------------------------------------------------------------------------- 
-        ValTrapper = Trapper_Buy_Items,  
+        ValTrapper = _Items_BUY,  
     -----------------------------------------------------------------------------
     --------------------------------------Vanhorn--------------------------------
     -----------------------------------------------------------------------------    
-        VanTrapper = Trapper_Buy_Items, 
+        VanTrapper = _Items_BUY, 
  
     
 }
